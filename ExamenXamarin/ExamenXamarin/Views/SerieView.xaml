@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ExamenXamarin.Views.SerieView"
+             xmlns:viewmodels="clr-namespace:ExamenXamarin.ViewModels"
+             xmlns:local="clr-namespace:ExamenXamarin"
+             BindingContext="{Binding Source={x:Static local:App.ServiceLocator}
+    , Path=SerieViewModel}">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="{Binding serie.nombre}"
+                VerticalOptions="Start" 
+                HorizontalOptions="CenterAndExpand" FontSize="45"/>
+            <Label FontSize="25"
+                   TextColor="Red"
+                   Text="{Binding serie.puntuacion,StringFormat='Puntuación: {0}'}" />
+            <Label FontSize="25"
+                   TextColor="Blue"
+                   Text="{Binding serie.anyo,StringFormat='Año: {0}'}" />
+            <Image WidthRequest="150"
+                   Source="{Binding serie.imagen}"></Image>
+            <ListView ItemsSource="{Binding Personajes}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label TextColor="Black"
+                                       FontSize="17"
+                                       Text="{Binding nombre}"></Label>
+                               
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

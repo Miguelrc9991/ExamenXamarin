@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ExamenXamarin.Views.ModificarView"
+             xmlns:viewmodels="clr-namespace:ExamenXamarin.ViewModels"
+             xmlns:local="clr-namespace:ExamenXamarin"
+             BindingContext="{Binding Source={x:Static local:App.ServiceLocator}
+    , Path=ModificarPersonajeViewModel}">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Personajes y Series"
+                VerticalOptions="Start" 
+                HorizontalOptions="CenterAndExpand"  FontSize="45" TextColor="Red"/>
+            <Label 
+                   FontFamily="Play-Regular"
+                   Text="Series"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   TextColor="Black" />
+            <Picker FontFamily="Play-Regular"
+                    HorizontalTextAlignment="Center"
+                    BackgroundColor="White"
+                    WidthRequest="500"
+                    TextColor="Black"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    ItemsSource="{Binding nseries}"
+                    SelectedIndex="{Binding idserie}"></Picker>
+            
+            <Label FontFamily="Play-Regular"
+                   Text="Personajes"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   
+                   TextColor="Black" />
+            <Picker FontFamily="Play-Regular"
+                    HorizontalTextAlignment="Center"
+                    BackgroundColor="White"
+                    TextColor="Black"
+                    WidthRequest="500"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    ItemsSource="{Binding npersonajes}"
+                    SelectedIndex="{Binding idpersonaje}"></Picker>
+            <Button Text="Guardar Cambios"
+                    Command="{Binding GuardarCambios}"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

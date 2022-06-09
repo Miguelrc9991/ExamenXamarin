@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ExamenXamarin.Views.SeriesView"
+             xmlns:viewmodels="clr-namespace:ExamenXamarin.ViewModels"
+             xmlns:local="clr-namespace:ExamenXamarin"
+             BindingContext="{Binding Source={x:Static local:App.ServiceLocator}
+    , Path=SeriesListViewModel}"
+             x:Name="viewListSeries">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition  Width="300"/>
+                    <ColumnDefinition  Width="300" />
+                </Grid.ColumnDefinitions>
+                <Button Text="Modificar Personajes Serie"
+                       HorizontalOptions="Start"
+                       VerticalOptions="Start"
+                       Grid.ColumnSpan="1"
+                        Command="{Binding ShowModificar}"/>
+                
+                <Button Text="Nuevo Personaje"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        Grid.ColumnSpan="2" />
+            </Grid>
+            <Label Text="SeriesXamarin"
+                VerticalOptions="Start" 
+                HorizontalOptions="CenterAndExpand" TextColor="Red" FontSize="45" />
+            <ListView ItemsSource="{Binding Series}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label TextColor="Red" FontSize="17" Text="{Binding nombre}"></Label>
+                                <Button Text="Ver Serie"
+                                        Command="{Binding BindingContext.ShowDetails,Source={x:Reference viewListSeries}}"
+                                        CommandParameter="{Binding .}"></Button>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

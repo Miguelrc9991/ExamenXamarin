@@ -34,6 +34,8 @@ namespace ExamenXamarin.ViewModels
                 tseries.Add(serie.nombre);
             }
             this.nseries = new ObservableCollection<string>(tseries);
+            this.Series = new ObservableCollection<Serie>(series); ;
+
         }
         private async Task LoadPersonajes()
         {
@@ -44,6 +46,7 @@ namespace ExamenXamarin.ViewModels
             {
                 tpersonajes.Add(personaje.nombre);
             }
+            this.Personajes = new ObservableCollection<Personaje>(personajes); ;
             this.npersonajes = new ObservableCollection<string>(tpersonajes);
         }
 
@@ -141,14 +144,14 @@ namespace ExamenXamarin.ViewModels
             {
                 return new Command(async () =>
                 {
-                    await this.service.UpdatePersonaje(this.idpersonaje+1, this.idserie+1);
+                    await this.service.UpdatePersonaje(this.personaje.idPersonaje, this.serie.idSerie);
                    
                     SeriesView view = new SeriesView();
                     SeriesListViewModel viewmodel =
                     App.ServiceLocator.SeriesListViewModel;
                     view.BindingContext = viewmodel;
-                    await
-                    Application.Current.MainPage.Navigation.PushModalAsync(view);
+                    MainDepartamentosView main = App.ServiceLocator.MainDepartamentosView;
+                    main.Detail = new NavigationPage(view);
                 });
             }
         }

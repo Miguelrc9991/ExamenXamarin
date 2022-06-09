@@ -9,25 +9,7 @@
              x:Name="viewListSeries">
     <ContentPage.Content>
         <StackLayout>
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="35"></RowDefinition>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition  Width="300"/>
-                    <ColumnDefinition  Width="300" />
-                </Grid.ColumnDefinitions>
-                <Button Text="Modificar Personajes Serie"
-                       HorizontalOptions="Start"
-                       VerticalOptions="Start"
-                       Grid.ColumnSpan="1"
-                        Command="{Binding ShowModificar}"/>
-                
-                <Button Text="Nuevo Personaje"
-                        HorizontalOptions="Center"
-                        VerticalOptions="Center"
-                        Grid.ColumnSpan="2" />
-            </Grid>
+         
             <Label Text="SeriesXamarin"
                 VerticalOptions="Start" 
                 HorizontalOptions="CenterAndExpand" TextColor="Red" FontSize="45" />

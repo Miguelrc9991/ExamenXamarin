@@ -22,7 +22,12 @@ namespace ExamenXamarin
         {
             InitializeComponent();
 
-            MainPage = new SeriesView();
+            MainDepartamentosView main = App.ServiceLocator.MainDepartamentosView;
+            main.Detail = new NavigationPage((Page)Activator.CreateInstance(typeof(SeriesView)));
+
+            //MainPage = App.ServiceLocator.MainMenuView;
+
+            MainPage = main;
         }
 
         protected override void OnStart()

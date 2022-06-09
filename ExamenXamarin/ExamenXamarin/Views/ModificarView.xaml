@@ -24,8 +24,9 @@
                     TextColor="Black"
                     HorizontalOptions="Center"
                     VerticalOptions="Center"
-                    ItemsSource="{Binding nseries}"
-                    SelectedIndex="{Binding idserie}"></Picker>
+                    ItemsSource="{Binding Series}"
+                    ItemDisplayBinding="{Binding nombre}"
+                    SelectedItem="{Binding serie}"></Picker>
             
             <Label FontFamily="Play-Regular"
                    Text="Personajes"
@@ -40,8 +41,10 @@
                     WidthRequest="500"
                     HorizontalOptions="Center"
                     VerticalOptions="Center"
-                    ItemsSource="{Binding npersonajes}"
-                    SelectedIndex="{Binding idpersonaje}"></Picker>
+                    ItemsSource="{Binding Personajes}"
+                    ItemDisplayBinding="{Binding nombre}"
+                    SelectedItem="{Binding personaje}"
+                    ></Picker>
             <Button Text="Guardar Cambios"
                     Command="{Binding GuardarCambios}"></Button>
         </StackLayout>

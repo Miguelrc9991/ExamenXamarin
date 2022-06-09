@@ -83,7 +83,7 @@ namespace ExamenXamarin.Services
             return personajesSerie;
         }
 
-        private async Task<int> GetMaxIdPersonaje()
+        public async Task<int> GetMaxIdPersonaje()
         {
             List<Personaje> personajes =
             await this.GetPersonajesAsync();

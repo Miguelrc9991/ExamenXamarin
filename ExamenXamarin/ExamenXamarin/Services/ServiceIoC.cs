@@ -22,6 +22,8 @@ namespace ExamenXamarin.Services
             ContainerBuilder builder = new ContainerBuilder();
             builder.RegisterType<ServiceApiSeries>();
             builder.RegisterType<ModificarPersonajeViewModel>();
+            builder.RegisterType<MainDepartamentosView>().SingleInstance();
+            builder.RegisterType<NuevoPersonaje>();
 
             builder.RegisterType<SeriesListViewModel>();
             builder.RegisterType<SerieViewModel>();
@@ -42,6 +44,20 @@ namespace ExamenXamarin.Services
             get
             {
                 return this.container.Resolve<ModificarPersonajeViewModel>();
+            }
+        }
+        public MainDepartamentosView MainDepartamentosView
+        {
+            get
+            {
+                return this.container.Resolve<MainDepartamentosView>();
+            }
+        }
+        public NuevoPersonaje NuevoPersonaje
+        {
+            get
+            {
+                return this.container.Resolve<NuevoPersonaje>();
             }
         }
         public SeriesListViewModel SeriesListViewModel

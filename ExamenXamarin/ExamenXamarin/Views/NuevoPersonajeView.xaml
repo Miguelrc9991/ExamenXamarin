@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ExamenXamarin.Views.NuevoPersonajeView"
+             xmlns:viewmodels="clr-namespace:ExamenXamarin.ViewModels"
+             xmlns:local="clr-namespace:ExamenXamarin"
+             BindingContext="{Binding Source={x:Static local:App.ServiceLocator}
+    , Path=NuevoPersonaje}">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Nuevo Personaje"
+                VerticalOptions="Start" 
+                HorizontalOptions="CenterAndExpand" />
+            <Label Text="Nombre: "></Label>
+            <Entry Text="{Binding personaje.nombre}" />
+            <Label Text="Imagen: "></Label>
+            <Entry Text="{Binding personaje.imagen}" />
+            <Picker FontFamily="Play-Regular"
+                    HorizontalTextAlignment="Center"
+                    BackgroundColor="White"
+                    WidthRequest="500"
+                    TextColor="Black"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    ItemsSource="{Binding Series}"
+                    ItemDisplayBinding="{Binding nombre}"
+                    SelectedItem="{Binding serie}"></Picker>
+            <Button Text="Insertar Personaje" Command="{Binding NuevoPersoanjeCom}"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
